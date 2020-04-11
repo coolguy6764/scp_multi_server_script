@@ -24,7 +24,7 @@ done
 
 read -rp "What is the full path to the file you want to transfer?  Example: /tmp/example_filename : " FILE_SOURCE
   while [ ! -f "$FILE_SOURCE" ]; do
-  read -p "File not found!  Please enter the full path to the file again: " FILE_SOURCE
+  read -rp "File not found!  Please enter the full path to the file again: " FILE_SOURCE
   done
 
 for ITEM in "${IP_ARRAY[@]}"; do
