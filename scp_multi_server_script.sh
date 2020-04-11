@@ -9,7 +9,7 @@ IP_ARRAY=()
 echo -e "\nThis script will send a file to multiple IP addresses via SCP.\nThe file will be placed in the destination's /tmp/ directory\n"
 
 while read -rp "Please enter a server IP or type \"Done\" when all server IPs have been entered: " SERVER_IP; do
-     if [ "$SERVER_IP" = "Done" ]; then
+     if [ "$SERVER_IP" = "Done" ] || [ "$SERVER_IP" = "done" ]; then
      break
      fi
 
