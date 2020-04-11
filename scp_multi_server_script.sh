@@ -1,9 +1,6 @@
 #!/bin/bash
 
 # scp_multi_server_script
-# Created by Michael Purcell
-# Version 1.0
-# March 16, 2020
 # Purpose: Enter IP addresses to send a file to multple servers.
 
 
