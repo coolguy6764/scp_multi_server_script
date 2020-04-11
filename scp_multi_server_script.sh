@@ -9,13 +9,13 @@ IP_ARRAY=()
 echo -e "\nThis script will send a file to multiple IP addresses via SCP.\nThe file will be placed in the destination's /tmp/ directory\n"
 
 while read -rp "Please enter a server IP or type \"Done\" when all server IPs have been entered: " SERVER_IP; do
-     if [ $SERVER_IP = "Done" ]; then
+     if [ "$SERVER_IP" = "Done" ]; then
      break
      fi
 
-     if /bin/ipcalc -c $SERVER_IP; then
-        if /bin/ping -w 10 -c 1 $SERVER_IP > /dev/null 2>&1; then
-          IP_ARRAY+=($SERVER_IP)
+     if /bin/ipcalc -c "$SERVER_IP"; then
+        if /bin/ping -w 10 -c 1 "$SERVER_IP" > /dev/null 2>&1; then
+          IP_ARRAY+=("$SERVER_IP")
         else echo -e "\nUnable to reach $SERVER_IP.  Please try again.\n"
         fi
       else echo -e "\nNot a valid IP address.\n"
@@ -28,5 +28,5 @@ read -rp "What is the full path to the file you want to transfer?  Example: /tmp
   done
 
 for ITEM in "${IP_ARRAY[@]}"; do
-     /usr/bin/scp $FILE_SOURCE idirect@$ITEM:/tmp/
+     /usr/bin/scp "$FILE_SOURCE" idirect@"$ITEM":/tmp/
 done
